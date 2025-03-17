@@ -9,15 +9,51 @@ package clave_dicotomica;
  * @author zarna
  * @param <T>
  */
+
+/*
+*
+Clase que representa el nodo que se va a utilizar para el arbol binario
+y probablemente la hash table tambien usando solo un hijo si hay colision
+*
+*/
+
 public class Nodo<T> {
     private T info;
     private Nodo<T> hijo_izq;
+    private Nodo<T> pNext;
     private Nodo<T> hijo_der;
+    private boolean esVerdad;
+    private Lista preguntas;
+
+    public boolean isEsVerdad() {
+        return esVerdad;
+    }
+
+    public void setEsVerdad(boolean esVerdad) {
+        this.esVerdad = esVerdad;
+    }
 
     public Nodo(T info) {
         this.info = info;
         this.hijo_izq = null;
         this.hijo_der = null;
+        this.pNext = null;
+    }
+
+    public Nodo<T> getpNext() {
+        return pNext;
+    }
+
+    public void setpNext(Nodo<T> pNext) {
+        this.pNext = pNext;
+    }
+
+    public Lista getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(Lista preguntas) {
+        this.preguntas = preguntas;
     }
 
     public T getInfo() {
