@@ -2,20 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package clave_dicotomica;
+/*package clave_dicotomica;
 
 /**
  *
  * @author zarna
  */
-import java.io.FileReader;
-import org.json.JSONObject;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+//import java.io.FileReader;
+//import org.json.JSONObject;
+//import org.json.JSONArray
+//import org.json.JSONObject;
+//import org.json.JSONTokener;
 
 
-public class LeerJson {
+/* public class LeerJson {
          public static void main(String[] args) {
         // Ruta de los archivos JSON
         String rutaFamilias = "C:\\Users\\leopo\\Downloads\\Archivos\\familias_botanicas.json"; // Cambia esto por la ruta correcta
@@ -67,7 +67,6 @@ public class LeerJson {
     /**
      * @param args the command line arguments
      */
-    
     
     
 

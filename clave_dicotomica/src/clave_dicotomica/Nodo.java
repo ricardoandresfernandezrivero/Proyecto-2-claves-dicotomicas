@@ -23,7 +23,7 @@ public class Nodo<T> {
     private Nodo<T> pNext;
     private Nodo<T> hijo_der;
     private boolean esVerdad;
-    private Lista preguntas;
+    private ListaSimple preguntas;
 
     public boolean isEsVerdad() {
         return esVerdad;
@@ -48,11 +48,11 @@ public class Nodo<T> {
         this.pNext = pNext;
     }
 
-    public Lista getPreguntas() {
+    public ListaSimple getPreguntas() {
         return preguntas;
     }
 
-    public void setPreguntas(Lista preguntas) {
+    public void setPreguntas(ListaSimple preguntas) {
         this.preguntas = preguntas;
     }
 
