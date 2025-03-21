@@ -18,8 +18,8 @@ import org.json.JSONTokener;
 public class LeerJson {
          public static void main(String[] args) {
         // Ruta de los archivos JSON
-        String rutaFamilias = "C:\\Users\\leopo\\Downloads\\Archivos\\familias_botanicas.json"; // Cambia esto por la ruta correcta
-        String rutaArboles = "C:\\Users\\leopo\\Downloads\\Archivos\\arboles_templados.json";
+        String rutaFamilias = "src/clave_dicotomica/familias_botanicas.json"; // Cambia esto por la ruta correcta
+        String rutaArboles = "src/clave_dicotomica/arboles_templados.json";
 
         // Procesar el archivo de familias botánicas
         System.out.println("Procesando familias botánicas...");

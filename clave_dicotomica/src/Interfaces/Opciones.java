@@ -4,10 +4,18 @@
  */
 package Interfaces;
 
+import java.io.FileNotFoundException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONTokener;
+import java.io.FileReader;
+import javax.swing.JOptionPane;
 /**
  *
  * @author zarna
  */
+
+
 public class Opciones extends javax.swing.JFrame {
 
     /**
@@ -26,25 +34,124 @@ public class Opciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Familia = new javax.swing.JButton();
+        Arboles = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        cuadro = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Familia.setText("Familia Botanica");
+        Familia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FamiliaActionPerformed(evt);
+            }
+        });
+
+        Arboles.setText("Arboles templados");
+        Arboles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ArbolesActionPerformed(evt);
+            }
+        });
+
+        cuadro.setColumns(20);
+        cuadro.setRows(5);
+        jScrollPane1.setViewportView(cuadro);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(Arboles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Familia)
+                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Familia)
+                    .addComponent(Arboles))
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void procesarJSON(String rutaArchivo, String clavePrincipal) {
+        cuadro.setText(""); // Limpiar el área de texto antes de mostrar nuevos resultados
+
+        try (FileReader reader = new FileReader(rutaArchivo)) {
+            // Parsear el archivo JSON
+            JSONTokener tokener = new JSONTokener(reader);
+            JSONObject jsonObject = new JSONObject(tokener);
+
+            // Obtener la lista principal (familias botánicas o árboles templados)
+            JSONArray listaPrincipal = jsonObject.getJSONArray(clavePrincipal);
+
+            // Recorrer cada elemento de la lista principal
+            for (int i = 0; i < listaPrincipal.length(); i++) {
+                JSONObject item = listaPrincipal.getJSONObject(i);
+
+                // Obtener el nombre del elemento (familia o árbol)
+                String nombre = item.keys().next();
+                cuadro.append(clavePrincipal + ": " + nombre + "\n");
+
+                // Obtener las propiedades del elemento
+                JSONArray propiedades = item.getJSONArray(nombre);
+
+                // Recorrer cada propiedad
+                for (int j = 0; j < propiedades.length(); j++) {
+                    JSONObject prop = propiedades.getJSONObject(j);
+                    // Obtener la clave y el valor de la propiedad
+                    String clave = prop.keys().next();
+                    Object valor = prop.get(clave);
+                    cuadro.append("  - " + clave + ": " + valor + "\n");
+                }
+                cuadro.append("\n"); // Separador entre elementos
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "Archivo no encontrado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al procesar el archivo JSON: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void ArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArbolesActionPerformed
+        // TODO add your handling code here:
+        String rutaArboles = "src/clave_dicotomica/arboles_templados.json";
+         procesarJSON(rutaArboles, "Arboles templados");
+        
+        
+        
+    }//GEN-LAST:event_ArbolesActionPerformed
+
+    private void FamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FamiliaActionPerformed
+        // TODO add your handling code here:
+        String rutaFamilias = "src/clave_dicotomica/familias_botanicas.json";
+        procesarJSON(rutaFamilias, "Familias botánicas");
+         
+        
+    }//GEN-LAST:event_FamiliaActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+   
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -78,5 +185,9 @@ public class Opciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Arboles;
+    private javax.swing.JButton Familia;
+    private javax.swing.JTextArea cuadro;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
