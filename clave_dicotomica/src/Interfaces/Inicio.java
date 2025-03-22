@@ -28,9 +28,10 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        elegirArboles = new javax.swing.JButton();
+        elegirFamilias = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,22 +39,30 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Claves dicotomicas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
-        jButton1.setText("Arboles templados");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 280, 50));
+        elegirArboles.setText("Arboles templados");
+        elegirArboles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elegirArbolesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(elegirArboles, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 280, 50));
 
-        jButton2.setText("Familias");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 280, 50));
+        elegirFamilias.setText("Familias");
+        jPanel1.add(elegirFamilias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 280, 50));
 
         jLabel2.setText("Ricardo Fernandez ,Leopoldo Roa y Miguel Greco");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/istockphoto-169941500-612x612.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,6 +71,10 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void elegirArbolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elegirArbolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elegirArbolesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,10 +112,11 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton elegirArboles;
+    private javax.swing.JButton elegirFamilias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

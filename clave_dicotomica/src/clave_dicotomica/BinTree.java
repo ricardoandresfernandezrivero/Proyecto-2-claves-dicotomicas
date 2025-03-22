@@ -35,8 +35,9 @@ public class BinTree<T> {
         this.pRoot = pRoot;
     }
     
-    public void insertar(String opcion){
-    if(!isEmpty()){
+    public void insertar(String opcion,boolean[] ruta){
+    
+        if(!isEmpty()){
         Nodo aux = getpRoot();
         while(aux!=null){
         if(aux.isEsVerdad()){

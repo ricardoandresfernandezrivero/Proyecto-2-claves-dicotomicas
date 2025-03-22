@@ -15,6 +15,5 @@ import org.json.JSONArray;
 
 public class Json {
     
-    JSONArray listaPrincipal = jsonObject.getJSONArray(clavePrincipal);
     
 }
