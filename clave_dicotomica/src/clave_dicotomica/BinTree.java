@@ -9,7 +9,7 @@ package clave_dicotomica;
  * @author zarna
  * @param <T>
  */
-public class BinTree<T> {
+public class BinTree {
     private Nodo pRoot;
     private int iN;
 
@@ -208,12 +208,20 @@ public class BinTree<T> {
     Nodo n65 = new Nodo("Manzanilla");
     insertar(n65, n49, false);
    }
+   
+   public Nodo hijo_izq(Nodo aux){
+    return aux.getHijo_izq();
+    }
+    
+    public Nodo hijo_der(Nodo aux){
+    return aux.getHijo_der();
+    }
     
     public void recorrer(Nodo pRoot){
     if(getpRoot()!=null){
-    System.out.print(getpRoot().getInfo());
-    recorrer(getpRoot().getHijo_izq());
-    recorrer(getpRoot().getHijo_der());
+    System.out.print(pRoot);
+    recorrer(hijo_izq(pRoot));
+    recorrer(hijo_der(pRoot));
     
     }
     }
@@ -226,7 +234,7 @@ public class BinTree<T> {
     BinTree arbol = new BinTree();
     arbol.generarArbol1();
     System.out.print(arbol.getpRoot().getHijo_der().getHijo_der().getInfo());
-    
+    arbol.recorrer(arbol.getpRoot());
     
     }
 }

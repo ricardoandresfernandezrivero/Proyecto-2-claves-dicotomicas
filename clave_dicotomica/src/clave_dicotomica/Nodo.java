@@ -23,7 +23,7 @@ public class Nodo<T> {
     private Nodo<T> pNext;
     private Nodo<T> hijo_der;
     private boolean esVerdad;
-    private Lista preguntas;
+    
 
     public boolean isEsVerdad() {
         return esVerdad;
@@ -46,14 +46,6 @@ public class Nodo<T> {
 
     public void setpNext(Nodo<T> pNext) {
         this.pNext = pNext;
-    }
-
-    public Lista getPreguntas() {
-        return preguntas;
-    }
-
-    public void setPreguntas(Lista preguntas) {
-        this.preguntas = preguntas;
     }
 
     public String getInfo() {
@@ -79,6 +71,8 @@ public class Nodo<T> {
     public void setHijo_der(Nodo<T> hijo_der) {
         this.hijo_der = hijo_der;
     }
+    
+    
     
     
 }

@@ -65,27 +65,31 @@ public class HTable {
     if(arr[i]==null){
     arr[i] = value;
     }else{
-    HNodo aux = arr[i];
-    while(aux.getpNext()!=null){
-    aux = aux.getpNext();
+    for(int j=0;j<this.getSize();j++){
+    if(arr[i]==null){
+    arr[i] = value;
+    break;
     }
-    aux.setpNext(value);
+    }
     }
     }
     
-    public static void main(String[] args){
-    HTable ht = new HTable(8);    
-    System.out.println(ht.hashFunction("Pino"));
-    System.out.println(ht.hashFunction("Abeto"));
-    System.out.println(ht.hashFunction("Roble Blanco"));
-    System.out.println(ht.hashFunction("Magnolia"));
-    System.out.println(ht.hashFunction("Acebo"));
-    System.out.println(ht.hashFunction("Olmo"));
-    System.out.println(ht.hashFunction("Castanna"));
-    System.out.println(ht.hashFunction("Nogal"));
+    public String[] get(String value){
+    int i = this.hashFunction(value);
+    String[] valor = null;
+    if(arr[i].getInfo().equals(value)){
+    valor = arr[i].getPreguntas(); 
+    }else{
+    for(int j=0;j<this.getSize();j++){
+    if(arr[j].getInfo().equals(value)){
+    valor = arr[j].getPreguntas();
+    
     }
-    String [] m1a = {"d","r","!"};
-    HNodo m1 = new HNodo("Abeto",m1a);
-    HNodo m2 = new HNodo("Magnolia",m1a);
+    }      
+    }
+    
+    return valor;
+    }
+    
     
 }

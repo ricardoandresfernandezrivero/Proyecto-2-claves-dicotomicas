@@ -5,6 +5,9 @@
 package Interfaces;
 import clave_dicotomica.BinTree;
 import clave_dicotomica.Nodo;
+import clave_dicotomica.LeerJson;
+import clave_dicotomica.HTable;
+
 import javax.swing.JOptionPane;
 /**
  *
@@ -12,8 +15,11 @@ import javax.swing.JOptionPane;
  */
 public class UI extends javax.swing.JFrame {
 static BinTree arbol1;
-static BinTree arbol2;
 static boolean respuesta = true;
+static HTable hashtable;
+static HTable hashtable2;
+static String rutaArboles;
+static String archivo;
 Nodo aux = null;
     /**
      * Creates new form UI
@@ -45,7 +51,7 @@ Nodo aux = null;
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        hashsearch = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         pregunta = new javax.swing.JTextArea();
@@ -56,6 +62,8 @@ Nodo aux = null;
         jButton9 = new javax.swing.JButton();
         textoPreguntas = new javax.swing.JTextField();
         OK = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -63,15 +71,23 @@ Nodo aux = null;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("CLAVES DICOTOMICAS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 204));
         jButton1.setText("Familias botanicas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 210, 40));
 
+        jButton3.setBackground(new java.awt.Color(204, 255, 204));
         jButton3.setText("Arboles templados");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +97,7 @@ Nodo aux = null;
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 220, 40));
 
         jLabel2.setText("Bienvenido!");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
 
         jButton4.setText("X");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -96,21 +112,21 @@ Nodo aux = null;
 
         jLabel4.setText("Busqueda por estructura de dato:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 370, 40));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 370, 40));
 
         jLabel5.setText("Tiempo: 0");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
 
-        jButton5.setText("Por hash table");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        hashsearch.setBackground(new java.awt.Color(204, 255, 204));
+        hashsearch.setText("Por hash table");
+        hashsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                hashsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, 30));
+        jPanel1.add(hashsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, 30));
 
+        jButton6.setBackground(new java.awt.Color(204, 255, 204));
         jButton6.setText("Por arbol ");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +147,7 @@ Nodo aux = null;
         jLabel8.setText("Por preguntas:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
+        si.setBackground(new java.awt.Color(204, 255, 204));
         si.setText("Si");
         si.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +156,7 @@ Nodo aux = null;
         });
         jPanel1.add(si, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 190, 30));
 
+        no.setBackground(new java.awt.Color(204, 255, 204));
         no.setText("No");
         no.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +165,7 @@ Nodo aux = null;
         });
         jPanel1.add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 220, 30));
 
+        jButton9.setBackground(new java.awt.Color(204, 255, 204));
         jButton9.setText("Generar el arbol");
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 550, 80));
 
@@ -157,6 +176,7 @@ Nodo aux = null;
         });
         jPanel1.add(textoPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 450, 40));
 
+        OK.setBackground(new java.awt.Color(204, 255, 204));
         OK.setText("OK/RESET");
         OK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,15 +185,21 @@ Nodo aux = null;
         });
         jPanel1.add(OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 120, 40));
 
+        jLabel9.setText("Hecho por Ricardo Fernandez, Leopoldo Roa y Miguel Greco");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, -1, -1));
+
+        jLabel10.setText("PD: El boton de OK/RESET sirve para empezar la parte de las preguntas.");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
         );
 
         pack();
@@ -185,15 +211,52 @@ Nodo aux = null;
         arbol.setpRoot(pNew);
         arbol.generarArbol1();
         arbol1 = arbol;
+        rutaArboles = "src/clave_dicotomica/arboles_templados.json";
+        archivo = "Arboles templados";
+        hashtable = LeerJson.procesarJSON(rutaArboles, archivo);
+        
         jLabel2.setText("Se ha generado la clave: "+jButton3.getText());
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void hashsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hashsearchActionPerformed
+        try{
+        pregunta.setText("");
+        String value = jTextField1.getText();
+        
+        String[] arr = hashtable.get(value);
+        long tiempo1 = System.nanoTime();
+        for(int i=0; i<arr.length; i++){
+        pregunta.setText(pregunta.getText()+"\n"+arr[i]);
+        long tiempo2 = System.nanoTime();
+        jLabel5.setText("Tiempo: " + Long.toString(tiempo2-tiempo1));
+        }
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_hashsearchActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        try{
+        pregunta.setText("");
+        String value = jTextField1.getText();
+        long tiempo1 = System.nanoTime();
+        boolean[] ruta = LeerJson.procesarJSON2(rutaArboles, archivo, value);
+        aux = arbol1.getpRoot();
+        for(int i=0;i<ruta.length;i++){
+        if(ruta[i]==true){
+            pregunta.setText(pregunta.getText()+"\n"+aux.getInfo()+"= "+ruta[i]);
+            aux = aux.getHijo_der(); 
+        }else{
+            pregunta.setText(pregunta.getText()+"\n"+aux.getInfo()+"= "+ruta[i]);
+            aux = aux.getHijo_izq(); 
+        }
+        }
+        long tiempo2 = System.nanoTime();
+        jLabel5.setText("Tiempo: " + Long.toString(tiempo2-tiempo1));
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void siActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siActionPerformed
@@ -237,6 +300,18 @@ Nodo aux = null;
         }
     }//GEN-LAST:event_noActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Nodo pNew = new Nodo("Reproduccion por esporas");
+        BinTree arbol = new BinTree();
+        arbol.setpRoot(pNew);
+        arbol.generarArbol2();
+        arbol1 = arbol;
+        rutaArboles = "src/clave_dicotomica/familias_botanicas.json";
+        archivo = "Familias botánicas";
+        hashtable = LeerJson.procesarJSON(rutaArboles, archivo);
+        jLabel2.setText("Se ha generado la clave: "+jButton1.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -274,14 +349,15 @@ Nodo aux = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OK;
+    private javax.swing.JButton hashsearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -289,6 +365,7 @@ Nodo aux = null;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
