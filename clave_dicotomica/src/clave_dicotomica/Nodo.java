@@ -18,7 +18,7 @@ y probablemente la hash table tambien usando solo un hijo si hay colision
 */
 
 public class Nodo<T> {
-    private T info;
+    private String info;
     private Nodo<T> hijo_izq;
     private Nodo<T> pNext;
     private Nodo<T> hijo_der;
@@ -33,7 +33,7 @@ public class Nodo<T> {
         this.esVerdad = esVerdad;
     }
 
-    public Nodo(T info) {
+    public Nodo(String info) {
         this.info = info;
         this.hijo_izq = null;
         this.hijo_der = null;
@@ -56,11 +56,11 @@ public class Nodo<T> {
         this.preguntas = preguntas;
     }
 
-    public T getInfo() {
+    public String getInfo() {
         return info;
     }
 
-    public void setInfo(T info) {
+    public void setInfo(String info) {
         this.info = info;
     }
 

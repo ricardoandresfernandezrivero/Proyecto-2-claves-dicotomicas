@@ -8,15 +8,15 @@ package clave_dicotomica;
  *
  * @author zarna
  */
-public class HTable<T> {
+public class HTable {
     int key;
     Nodo value;
     int size;
-    Nodo[] arr;
+    HNodo[] arr;
 
     public HTable(int size) {
         this.size = size;
-        this.arr = new Nodo[size];
+        this.arr = new HNodo[size];
     }
 
     public int getKey() {
@@ -43,11 +43,11 @@ public class HTable<T> {
         this.size = size;
     }
 
-    public Nodo[] getArr() {
+    public HNodo[] getArr() {
         return arr;
     }
 
-    public void setArr(Nodo[] arr) {
+    public void setArr(HNodo[] arr) {
         this.arr = arr;
     }
     
@@ -60,14 +60,32 @@ public class HTable<T> {
     return sum%arr.length;
     }
     
-    public void put(String key, Nodo value){
-    int i = this.hashFunction(key);
+    public void put(HNodo value){
+    int i = this.hashFunction(value.getInfo());
     if(arr[i]==null){
     arr[i] = value;
     }else{
-    //Se hace la lista enlazada
+    HNodo aux = arr[i];
+    while(aux.getpNext()!=null){
+    aux = aux.getpNext();
+    }
+    aux.setpNext(value);
     }
     }
     
-    public void get(String key){}
+    public static void main(String[] args){
+    HTable ht = new HTable(8);    
+    System.out.println(ht.hashFunction("Pino"));
+    System.out.println(ht.hashFunction("Abeto"));
+    System.out.println(ht.hashFunction("Roble Blanco"));
+    System.out.println(ht.hashFunction("Magnolia"));
+    System.out.println(ht.hashFunction("Acebo"));
+    System.out.println(ht.hashFunction("Olmo"));
+    System.out.println(ht.hashFunction("Castanna"));
+    System.out.println(ht.hashFunction("Nogal"));
+    }
+    String [] m1a = {"d","r","!"};
+    HNodo m1 = new HNodo("Abeto",m1a);
+    HNodo m2 = new HNodo("Magnolia",m1a);
+    
 }

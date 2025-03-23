@@ -9,6 +9,8 @@ package clave_dicotomica;
  * @author zarna
  */
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,7 +18,7 @@ import org.json.JSONTokener;
 
 
 public class LeerJson {
-        static Treedecision arbol = new Treedecision();
+        
          public static void main(String[] args) {
         // Ruta de los archivos JSON
         String rutaFamilias = "src/clave_dicotomica/familias_botanicas.json"; // Cambia esto por la ruta correcta
@@ -92,25 +94,10 @@ public class LeerJson {
                 String nombre = item.keys().next();
                 // Obtener las propiedades del elemento
                 JSONArray propiedades = item.getJSONArray(nombre);
-                arbol.root = new Node(propiedades.getJSONObject(0).keys().next());
+                /*arbol.root = new Node(propiedades.getJSONObject(0).keys().next());*/
                 boolean[] ruta = new boolean[propiedades.length()];
                 // Recorrer cada propiedad
-                for (int j = 0; j < propiedades.length(); j++) {
-                    JSONObject prop = propiedades.getJSONObject(j);
-                    // Obtener la clave y el valor de la propiedad
-                    String clave = prop.keys().next();
-                    
-                    boolean valor = (boolean) prop.get(clave);
-                    
-                   
-                    
-                    
-                    ruta[j] = valor;
-                   
-                   //System.out.println(clave + ""+ ruta[j]);
-                   // arbol.insert2(propiedades, parent, valor, valor);
-                    
-                }
+                
                 
                 for (int j = 0; j < propiedades.length()-1; j++) {
                     boolean[] ruta2 = new boolean[j+1];
@@ -130,28 +117,44 @@ public class LeerJson {
                     }*/
                     
                     
-                    System.out.println(clave2+":");
+                    //System.out.println(clave2+":");
                     
                     //System.out.println(clave + valor);
                     
                     for(int n=0;n<=j;n++){
-                    System.out.println(ruta2[n]);
+                    //System.out.println(ruta2[n]);
                     }
                     
                         
                     
                     
                     
-                   // arbol.insert2(propiedades, parent, valor, valor);
-                   // arbol.insert2(nodo,ruta); 
+                   /*Node nodo = new Node(clave2);
+                   arbol.insert2(nodo,ruta2); */
+                }
+                
+                for (int j = 0; j < propiedades.length(); j++) {
+                    JSONObject prop = propiedades.getJSONObject(j);
+                    // Obtener la clave y el valor de la propiedad
+                    String clave = prop.keys().next();
+                    
+                    boolean valor = (boolean) prop.get(clave);
+                    
+                   
+                    
+                    
+                    ruta[j] = valor;
+                   
+                   //Node pNew = new Node(clave);
+                   //arbol.insert2(pNew,ruta);
+                   //arbol.insert2(pNew,ruta); 
+                    
                 }
                 
                 
                 
-                
-                
-             System.out.println("----");
-             Node pNew = new Node(nombre);
+             //System.out.println("----");
+             
                 
             
                 }
@@ -162,12 +165,8 @@ public class LeerJson {
           
 
     
-          JSONObject obj= listaPrincipal.getJSONObject(5);
-          String name = obj.keys().next();
-          String prop = obj.getJSONArray(name).getJSONObject(2).keys().next();
-          JSONObject propiedad = obj.getJSONArray(name).getJSONObject(2);
-          //COMO SACAR EL NOMBRE
-          System.out.println(propiedad.get(prop));
+          
+         // System.out.println(arbol.preorder(arbol.root));
           //COMO SACAR EL VALOR
           
             

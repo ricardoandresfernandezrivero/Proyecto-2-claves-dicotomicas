@@ -27,7 +27,7 @@ public class Pila<T> {
         this.cima = null;
     }
     
-    public void apilar(T nodo) {
+    public void apilar(String nodo) {
         Nodo pNew = new Nodo(nodo);
         if (isEmpty()) {
             this.cima = pNew;

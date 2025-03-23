@@ -11,8 +11,10 @@ package clave_dicotomica;
  */
 public class NewClass {
     public static void main(String[] args){
+    BinTree arbol = new BinTree();
+    arbol.generarArbol1();
+    arbol.recorrer(arbol.getpRoot());
     
-    
-    
+    }
     
 }
