@@ -3,14 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/BinTree.java</file>
             <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Nodo.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/HTable.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Lista.java</file>
             <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/LeerJson.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Clave_dicotomica.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/familias_botanicas.json</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Json.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/arboles_templados.json</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Treedecision.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/Interfaces/Inicio.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/Interfaces/Opciones.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/ArbolB.java</file>
+            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/ArbolBDecision.java</file>
             <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/NewClass.java</file>
             <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Node.java</file>
-            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Clave_dicotomica.java</file>
-            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/Json.java</file>
-            <file>file:/C:/Users/LeBron/Documents/GitHub/Proyecto-2-claves-dicotomicas/clave_dicotomica/src/clave_dicotomica/BinTree_1.java</file>
         </group>
     </open-files>
 </project-private>

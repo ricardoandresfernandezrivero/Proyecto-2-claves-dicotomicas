@@ -5,9 +5,11 @@
 package clave_dicotomica;
 
 /**
- *
+ * Estructura de arbol binario usada para la representación gr&aacute;fica 
+ * de la clave dicot&oacute;mica, as&iacute; como las listas de booleanos.
+ * 
  * @author zarna
- * @param <T>
+ * @param <T> tipo generico.
  */
 public class BinTree {
     private Nodo pRoot;
@@ -21,6 +23,10 @@ public class BinTree {
         this.iN = iN;
     }
 
+    /**
+     * Constructor de la clase BinTree.
+     * pRoot es la raiz, y iN corresponde a su tama&ntilde;o.
+     */
     public BinTree() {
         this.pRoot = null;
         this.iN = 0;
@@ -35,7 +41,16 @@ public class BinTree {
         this.pRoot = pRoot;
     }
     
-    public void insertar(Nodo hijo,Nodo padre, boolean direccion){
+    /**
+     * Inserta un nodo en el &aacute;rbol, donde la dirección depende de la
+     * respuesta a la pregunta de la clave.
+     * @param hijo Es la siguiente pregunta o la especie.
+     * @param padre Corresponde a la pregunta que se hace.
+     * @param direccion Es la respuesta a la pregunta. Se agrega el nodo a la 
+     * izquierda.
+     */
+    
+    public void insertar(Nodo hijo, Nodo padre, boolean direccion){
     if(direccion == false){
     padre.setHijo_izq(hijo);
     }else{
@@ -43,6 +58,10 @@ public class BinTree {
     }
     }
     
+    
+    /**
+     * Crea el primer &aacute;rbol a partir de una de las claves dic&oacute;tomicas.
+     */
     public void generarArbol1(){
     Nodo n1 = new Nodo("Hojas como agujas");
     setpRoot(n1);
@@ -75,7 +94,11 @@ public class BinTree {
    insertar(ne, n9, true);
    insertar(nf, n9, false); 
    }
+   
     
+   /**
+     * Crea el segundo &aacute;rbol a partir de una de las claves dicot&oacute;micas.
+     */
    public void generarArbol2(){
     Nodo n1 = new Nodo("Reproduccion por esporas");
     setpRoot(n1);
@@ -209,7 +232,7 @@ public class BinTree {
     insertar(n65, n49, false);
    }
    
-   public Nodo hijo_izq(Nodo aux){
+    public Nodo hijo_izq(Nodo aux){
     return aux.getHijo_izq();
     }
     
@@ -217,6 +240,10 @@ public class BinTree {
     return aux.getHijo_der();
     }
     
+    /**
+     * Recorre el &aacute;rbol desde un nodo espec&iacute;fico.
+     * @param pRoot 
+     */
     public void recorrer(Nodo pRoot){
     if(getpRoot()!=null){
     System.out.print(pRoot);
