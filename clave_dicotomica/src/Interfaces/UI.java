@@ -26,7 +26,7 @@ Nodo aux = null;
      */
     public UI() {
         this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        this.setTitle("Clave dicotomica");
         initComponents();
     }
 
@@ -166,12 +166,7 @@ Nodo aux = null;
         jPanel1.add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 220, 30));
 
         jButton9.setBackground(new java.awt.Color(204, 255, 204));
-        jButton9.setText("Visualizar el arbol");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+        jButton9.setText("Generar el arbol");
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 550, 80));
 
         textoPreguntas.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +232,7 @@ Nodo aux = null;
         jLabel5.setText("Tiempo: " + Long.toString(tiempo2-tiempo1));
         }
         }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
+        JOptionPane.showMessageDialog(null, "Error, se ha introducido mal el nombre");
         }
     }//GEN-LAST:event_hashsearchActionPerformed
 
@@ -260,7 +255,7 @@ Nodo aux = null;
         long tiempo2 = System.nanoTime();
         jLabel5.setText("Tiempo: " + Long.toString(tiempo2-tiempo1));
         }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
+        JOptionPane.showMessageDialog(null, "Se produjo un error al introducir los datos");
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -316,10 +311,6 @@ Nodo aux = null;
         hashtable = LeerJson.procesarJSON(rutaArboles, archivo);
         jLabel2.setText("Se ha generado la clave: "+jButton1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments

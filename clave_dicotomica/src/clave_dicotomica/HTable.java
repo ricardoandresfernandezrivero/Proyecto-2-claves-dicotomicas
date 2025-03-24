@@ -13,12 +13,10 @@ public class HTable {
     Nodo value;
     int size;
     HNodo[] arr;
-    
     /**
      * Constructor de la clase HTable.
      * @param size tama&ntilde;o de la tabla hash.
      */
-    
     public HTable(int size) {
         this.size = size;
         this.arr = new HNodo[size];
@@ -55,7 +53,6 @@ public class HTable {
     public void setArr(HNodo[] arr) {
         this.arr = arr;
     }
-    
     /**
      * Calcula la posici&oacute;n en la tabla hash acorde al parametro dado. 
      * Suma los caracteres del parametro y consigue el m&oacute;dulo con respecto al Hash Table.
@@ -71,13 +68,11 @@ public class HTable {
     }
     return sum%arr.length;
     }
-    
     /**
      * Inserta un nodo en la Hash Table. Si esta ocupado, escoge el siguiente
      * espacio disponible.
      * @param value Nodo que se quiere agregar a la Hash Table.
      */
-    
     public void put(HNodo value){
     int i = this.hashFunction(value.getInfo());
     if(arr[i]==null){
@@ -91,7 +86,6 @@ public class HTable {
     }
     }
     }
-    
     /**
      * Devuelve las preguntas que corresponden al valor en la Hash Table que
      * coincide con el parametro de entrada. 
@@ -99,7 +93,6 @@ public class HTable {
      * acceder.
      * @return preguntas que coinciden con el parametro de entrada.
      */
-    
     public String[] get(String value){
     int i = this.hashFunction(value);
     String[] valor = null;

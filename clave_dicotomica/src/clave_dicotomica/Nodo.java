@@ -11,8 +11,9 @@ package clave_dicotomica;
  */
 
 /*
-* Clase que representa el nodo que se va a utilizar para el arbol binario
-* y probablemente la hash table tambien usando solo un hijo si hay colision
+*
+Clase que representa el nodo que se va a utilizar para el arbol binario
+y probablemente la hash table tambien usando solo un hijo si hay colision
 *
 */
 
@@ -32,12 +33,6 @@ public class Nodo<T> {
         this.esVerdad = esVerdad;
     }
 
-    /**
-     * Constructor de la clase Nodo para &aacute;rbol binario.
-     * @param info información contenida en el nodo. Tipo String pero puede
-     * ser pregunta o especie.
-     */
-    
     public Nodo(String info) {
         this.info = info;
         this.hijo_izq = null;

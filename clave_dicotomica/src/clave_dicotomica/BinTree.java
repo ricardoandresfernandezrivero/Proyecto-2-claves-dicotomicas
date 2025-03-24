@@ -22,7 +22,6 @@ public class BinTree {
     public void setiN(int iN) {
         this.iN = iN;
     }
-
     /**
      * Constructor de la clase BinTree.
      * pRoot es la raiz, y iN corresponde a su tama&ntilde;o.
@@ -40,7 +39,6 @@ public class BinTree {
     public void setpRoot(Nodo pRoot) {
         this.pRoot = pRoot;
     }
-    
     /**
      * Inserta un nodo en el &aacute;rbol, donde la dirección depende de la
      * respuesta a la pregunta de la clave.
@@ -50,15 +48,13 @@ public class BinTree {
      * izquierda.
      */
     
-    public void insertar(Nodo hijo, Nodo padre, boolean direccion){
+    public void insertar(Nodo hijo,Nodo padre, boolean direccion){
     if(direccion == false){
     padre.setHijo_izq(hijo);
     }else{
     padre.setHijo_der(hijo);
     }
     }
-    
-    
     /**
      * Crea el primer &aacute;rbol a partir de una de las claves dic&oacute;tomicas.
      */
@@ -94,9 +90,7 @@ public class BinTree {
    insertar(ne, n9, true);
    insertar(nf, n9, false); 
    }
-   
-    
-   /**
+    /**
      * Crea el segundo &aacute;rbol a partir de una de las claves dicot&oacute;micas.
      */
    public void generarArbol2(){
@@ -232,14 +226,13 @@ public class BinTree {
     insertar(n65, n49, false);
    }
    
-    public Nodo hijo_izq(Nodo aux){
+   public Nodo hijo_izq(Nodo aux){
     return aux.getHijo_izq();
     }
     
     public Nodo hijo_der(Nodo aux){
     return aux.getHijo_der();
     }
-    
     /**
      * Recorre el &aacute;rbol desde un nodo espec&iacute;fico.
      * @param pRoot 

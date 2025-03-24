@@ -4,8 +4,11 @@
  */
 package clave_dicotomica;
 
+/**
+ *
+ * @author zarna
+ */
 import java.io.FileReader;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -32,15 +35,15 @@ public class LeerJson {
         //System.out.println("\nProcesando árboles templados...");
         
     }
-
-    /**
+         
+         /**
      * Procesa un JSON y hace una Hash Table a partir de los datos obtenidos.
      * 
      * @param rutaArchivo ruta del JSON.
      * @param clavePrincipal clave principal del archivo.
      * @return una Hash Table con los datos del JSON, o <code>null</code> si ocurre un error.
-     */    
-         
+     */ 
+
     public static HTable procesarJSON(String rutaArchivo, String clavePrincipal) {
         HTable hashtable;
         try (FileReader reader = new FileReader(rutaArchivo)) {
@@ -73,10 +76,13 @@ public class LeerJson {
           
           return hashtable;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "No se pudo encontrar el elemento");
         }
         return null;
+
     }
+    
+    
     
     /**
      * Procesa un archivo JSON y busca un valor específico, devolviendo un array de booleanos.
@@ -86,7 +92,7 @@ public class LeerJson {
      * @param value valor a buscar.
      * @return un array de booleanos asociado al valor obtenido, o <code>null</code> si no se encuentra.
      */
-    
+
     public static boolean[] procesarJSON2(String rutaArchivo, String clavePrincipal, String value) {
         boolean[] ruta1;
         try (FileReader reader = new FileReader(rutaArchivo)) {
@@ -134,7 +140,7 @@ public class LeerJson {
              
              
                 
-            System.out.println(nombre+" "+Arrays.toString(ruta));
+            
             
             
             if(nombre.equals(value)){
@@ -154,7 +160,8 @@ public class LeerJson {
 
            
         } catch (Exception e) {
-            System.err.println("Error al procesar el archivo JSON: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al procesar el archivo JSON");
+            
         }
         return null;
     }

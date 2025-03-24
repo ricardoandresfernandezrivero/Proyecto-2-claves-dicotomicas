@@ -12,7 +12,6 @@ public class HNodo {
     private String info;
     private String[] preguntas;
     private HNodo pNext;
-    
     /**
      * Constructor de la clase HNodo.
      * @param info informaci&oacute;n que corresponde a la especie.
